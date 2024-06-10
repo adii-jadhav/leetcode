@@ -1,3 +1,12 @@
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
-        return sum(h1 != h2 for h1, h2 in zip(heights, sorted(heights)))
+        
+        sorted_heights = sorted(heights)
+        unexpected = 0
+
+        for i in range(len(heights)):
+            if heights[i] != sorted_heights[i]:
+                unexpected += 1
+
+        return unexpected
+        
